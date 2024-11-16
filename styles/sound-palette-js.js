@@ -4,6 +4,7 @@ function initialise(){
     context = document.getElementById('canvas_area').getContext('2d');
     drawStave();
     drawTrebleClef();
+    drawTimeSignature(4,4);
 
     canvasArea.addEventListener('mousedown', function(e) {
         mousePressed = true;
@@ -66,6 +67,12 @@ function drawLineOfStave(x1, y1, x2, y2) {
 function drawTrebleClef() {
     context.font = '200px Verdana';
     context.fillText("𝄞", 80, 150, 100);
+}
+
+function drawTimeSignature(top, bottom) {
+    context.font = '65px Allegretto';
+    context.fillText(top, 155, 90, 100);
+    context.fillText(bottom, 155, 135, 100);
 }
 
 //main program body

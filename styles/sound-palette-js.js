@@ -4,6 +4,7 @@ function initialise(){
     context = document.getElementById('canvas_area').getContext('2d');
     drawStave();
     drawTrebleClef();
+    drawTimeSignature(4,4);
 
     canvasArea.addEventListener('mousedown', function(e) {
         mousePressed = true;
@@ -68,13 +69,19 @@ function drawTrebleClef() {
     context.fillText("𝄞", 80, 150, 100);
 }
 
+
+function drawTimeSignature(top, bottom) {
+    context.font = '65px Allegretto';
+    context.fillText(top, 155, 90, 100);
+    context.fillText(bottom, 155, 135, 100);
+}
+
 function clearCanvas(){
     context.setTransform(1, 0, 0, 1, 0, 0)
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     drawStave();
     drawTrebleClef();
-}   
-
+}
 
 //main program body
 let canvasArea = document.getElementById('canvas_area');
@@ -84,6 +91,3 @@ let mousePressed = false;
 
 let clearButton = document.getElementById('clearCanvas');
 clearButton.addEventListener('click', function() {clearCanvas()});
-
-
-let numOfStaves = 0;

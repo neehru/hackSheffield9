@@ -7,26 +7,30 @@
         <!-- Bootstrap styles -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
         <!-- Custom styles -->
-        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="../styles/styles.css">
         <!-- Bootstrap JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/7118fd66c6.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stephen.band/scribe/scribe-music/module.css" />
         <script type="module" src="https://stephen.band/scribe/scribe-music/module.js"></script>
     </head>
-    <body>
+    <body onload="initialise();">
         <nav class="navbar-brand navbar-light bg-light">
             <div>
                 <h1 class="purple">Sound Palette <i class="fa-solid fa-music purple"></i></h1>
             </div>
         </nav>
-        <div class="container-fluid border-purple">
+<!--        <div class="container-fluid border-purple">-->
+            <canvas id="canvas_area" width="1450%" height="500%"></canvas>-->
             <button type="button" class="btn btn-block add-stave-btn">+ Add a new stave</button>
             <div class="stave">
 
             </div>
-        </div>
+            <button id="clearCanvas">Clear All</button>
+            <button id="submit">Submit</button>
+<!--        </div>-->
     </body>
+    <script src="../styles/sound-palette-js.js"></script>
     <footer class="mt-auto bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-3 bg-dark">
             <p class="text-white">she sound on my palette till i club</p>

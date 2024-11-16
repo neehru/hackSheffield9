@@ -17,6 +17,11 @@ body {
     border-radius: 10px;
 }
 
+canvas{
+    border-radius: 25px;
+    border: 10px solid #BE35AC;
+}
+
 .container-fluid {
     height: 60vh;
     margin: 20px 0 20px 0;

@@ -69,6 +69,7 @@ function drawTrebleClef() {
     context.fillText("𝄞", 80, 150, 100);
 }
 
+
 function drawTimeSignature(top, bottom) {
     context.font = '65px Allegretto';
     context.fillText(top, 155, 90, 100);
@@ -90,5 +91,3 @@ let mousePressed = false;
 
 let clearButton = document.getElementById('clearCanvas');
 clearButton.addEventListener('click', function() {clearCanvas()});
-
-let numOfStaves = 0;

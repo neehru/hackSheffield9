@@ -14,13 +14,13 @@
         <link rel="stylesheet" href="https://stephen.band/scribe/build/scribe-music/module.css" />
         <script type="module" src="https://stephen.band/scribe/build/scribe-music/module.js"></script>
     </head>
-    <body>
+    <body onload="initialise();">
         <nav class="navbar-brand navbar-light bg-light">
             <div>
                 <h1 class="purple">Sound Palette <i class="fa-solid fa-music purple"></i></h1>
             </div>
         </nav>
-        <div class="container-fluid border-purple">
+            <canvas id="canvas_area" width="1450%" height="500%"></canvas>
             <button type="button" class="btn btn-block add-stave-btn">+ Add a new stave</button>
             <div class="stave">
                 <p class="vertical-line"></p>
@@ -30,30 +30,13 @@
                 <p class="stave-bar"></p>
                 <p class="stave-bar"></p>
             </div>
-            <scribe-music type="sequence" clef="treble" meter="4/4">
-                0 F 0.2 1
-<!--                1 F#5 0.2 1-->
-<!--                2 A4  0.2 1-->
-<!--                3 D4  0.2 1-->
-<!--                4 F#5 0.2 1-->
-<!--                5 A4  0.2 1-->
-<!--                6 D4  0.2 1-->
-<!--                7 F#5 0.2 1-->
-<!--                8 A4  0.2 1-->
-<!--                9 D4  0.2 1-->
-<!--                10 F#5 0.2 1-->
-<!--                11 A4  0.2 1-->
-<!--                12 A5 0.2 1-->
-<!--                13 F#5 0.2 0.25-->
-<!--                14 A4  0.2 0.5-->
-<!--                15 D4  0.2 0.25-->
-<!--                15.5 F#5 0.2 0.25-->
-            </scribe-music>
-        </div>
+            <button id="clearCanvas">Clear All</button>
+            <button id="submit">Submit</button>
     </body>
+    <script src="../styles/sound-palette-js.js"></script>
     <footer class="mt-auto bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-3 bg-dark">
-            <p class="text-white">she sound on my palette till i club</p>
+            <p class="text-white">she sound on my palette till I club</p>
             <p class="text-white">Copyright © 2024</p>
         </div>
     </footer>

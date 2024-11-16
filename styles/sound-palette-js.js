@@ -34,10 +34,12 @@ function initialise(){
         if (mousePressed) {
             let offset = canvasArea.getBoundingClientRect();
             let x = e.pageX - offset.left;
-            let y = e.pageY - offset.top;
+            let y = e.pageY - offset.top - 35;
             draw(x, y, true); // Use your draw function
         }
     });
+
+    canvasArea.addEventListener('click', drawStave);
 
     canvasArea.addEventListener('mouseup', function(e) {
         mousePressed = false;
@@ -61,6 +63,13 @@ function draw(x, y, down){
     }
     lastX = x;
     lastY = y;
+}
+
+function drawStave() {
+    context.beginPath();
+    context.moveTo(0, 0);
+    context.lineTo(100, 0);
+    context.stroke();
 }
 
 //main program body

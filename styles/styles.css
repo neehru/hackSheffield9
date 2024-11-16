@@ -37,17 +37,3 @@ canvas{
     letter-spacing: 1px;
     font-size: 20px;
 }
-
-.stave {
-    margin-top: 30px;
-}
-
-.stave-bar {
-    border-bottom: 1px solid black;
-    margin: 8px;
-}
-
-.vertical-line {
-    border-left: 1px solid black;
-    height: 10px;
-}

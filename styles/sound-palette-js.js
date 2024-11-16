@@ -2,25 +2,8 @@
 
 function initialise(){
     context = document.getElementById('canvas_area').getContext('2d');
-
-    // $('#canvas_area').mousedown(function(e){
-    //     mousePressed = true;
-    //     Draw(e.pageX = $(this).offset().left, e.pageY - $(this).offset.top, false);
-    // });
-    //
-    // $('#canvas_area').mousedown(function(e){
-    //     if (mousePressed){
-    //         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
-    //     }
-    // });
-    //
-    // $('#canvas_area').mouseup(function(e){
-    //     mousePressed = false;
-    // });
-    //
-    // $('#canvas_area').mouseleave(function(e){
-    //     mousePressed = false;
-    // });
+    drawStave();
+    drawTrebleClef();
 
     canvasArea.addEventListener('mousedown', function(e) {
         mousePressed = true;
@@ -34,7 +17,7 @@ function initialise(){
         if (mousePressed) {
             let offset = canvasArea.getBoundingClientRect();
             let x = e.pageX - offset.left;
-            let y = e.pageY - offset.top;
+            let y = e.pageY - offset.top - 35;
             draw(x, y, true); // Use your draw function
         }
     });
@@ -61,6 +44,28 @@ function draw(x, y, down){
     }
     lastX = x;
     lastY = y;
+}
+
+function drawStave() {
+    let canvasWidth = canvasArea.width;
+    let margin = 80;
+    let yDist = 20;
+
+    for (let i = 1; i <= 5; i++) {
+        drawLineOfStave(margin, 30 + i * yDist,canvasWidth - margin, 30 + i * yDist);
+    }
+}
+
+function drawLineOfStave(x1, y1, x2, y2) {
+    context.beginPath();
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+}
+
+function drawTrebleClef() {
+    context.font = '200px Verdana';
+    context.fillText("𝄞", 80, 150, 100);
 }
 
 //main program body

@@ -5,6 +5,8 @@ function initialise(){
     drawStave();
     drawTrebleClef();
     drawTimeSignature(4,4);
+    drawMeasureLines();
+    drawIntermediateLines()
 
     canvasArea.addEventListener('mousedown', function(e) {
         mousePressed = true;
@@ -74,6 +76,28 @@ function drawTimeSignature(top, bottom) {
     context.font = '65px Allegretto';
     context.fillText(top, 155, 90, 100);
     context.fillText(bottom, 155, 135, 100);
+}
+
+function drawMeasureLines() {
+    let canvasWidth = canvasArea.width;
+    for (let i = 1; i <= 4; i++) {
+        context.lineWidth = 4;
+        context.beginPath();
+        context.moveTo(160 + i * (canvasWidth / 5), 131);
+        context.lineTo(160 + i * (canvasWidth / 5), 49);
+        context.stroke();
+    }
+}
+
+function drawIntermediateLines() {
+    let canvasWidth = canvasArea.width;
+    for (let i = 1; i <= 16; i++) {
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(160 + i * (canvasWidth / 20), 131);
+        context.lineTo(160 + i * (canvasWidth / 20), 49);
+        context.stroke();
+    }
 }
 
 function clearCanvas(){

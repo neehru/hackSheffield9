@@ -65,8 +65,8 @@ function drawLineOfStave(x1, y1, x2, y2) {
 }
 
 function drawTrebleClef() {
-    context.font = '200px Verdana';
-    context.fillText("𝄞", 80, 150, 100);
+    context.font = '150px Verdana';
+    context.fillText("𝄞", 80, 130, 80);
 }
 
 

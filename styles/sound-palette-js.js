@@ -75,23 +75,24 @@ function drawLineOfStave(x1, y1, x2, y2) {
 
 function drawTrebleClef() {
     context.font = '150px Verdana';
-    context.fillText("𝄞", 55, 130, 80);
+    context.fillText("𝄞", 45, 130, 80);
 }
 
 
 function drawTimeSignature() {
     context.font = '65px Allegretto';
-    context.fillText(4, 130, 90, 100);
-    context.fillText(4, 130, 135, 100);
+    context.fillText(4, 120, 90, 100);
+    context.fillText(4, 120, 135, 100);
 }
 
 function drawMeasureLines() {
     let canvasWidth = canvasArea.width;
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i < 6; i++) {
         context.lineWidth = 4;
         context.beginPath();
-        context.moveTo(160 + i * (canvasWidth / 5), 131);
-        context.lineTo(160 + i * (canvasWidth / 5), 49);
+        context.moveTo(160 + (i-1) * (canvasWidth / 5), 131);
+        console.log(i + " " + (160 + i * (canvasWidth / 5)))
+        context.lineTo(160 + (i-1) * (canvasWidth / 5), 49);
         context.stroke();
     }
 }

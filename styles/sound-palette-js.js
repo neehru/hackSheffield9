@@ -75,10 +75,20 @@ function drawTimeSignature(top, bottom) {
     context.fillText(bottom, 155, 135, 100);
 }
 
+function clearCanvas(){
+    context.setTransform(1, 0, 0, 1, 0, 0)
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    drawStave();
+    drawTrebleClef();
+}
+
 //main program body
 let canvasArea = document.getElementById('canvas_area');
 let context;
 let lastX, lastY;
 let mousePressed = false;
+
+let clearButton = document.getElementById('clearCanvas');
+clearButton.addEventListener('click', function() {clearCanvas()});
 
 let numOfStaves = 0;

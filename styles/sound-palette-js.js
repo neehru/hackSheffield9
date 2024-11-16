@@ -11,8 +11,8 @@ function initialise(){
     canvasArea.addEventListener('mousedown', function(e) {
         mousePressed = true;
         let offset = canvasArea.getBoundingClientRect();
-        lastX = e.pageX - offset.left; // Update lastX
-        lastY = e.pageY - offset.top; // Update lastY
+        lastX = e.pageX - offset.left - 10; // Update lastX
+        lastY = e.pageY - offset.top - 10; // Update lastY
         draw(lastX, lastY, false); // Optional: Start path without drawing
     });
 
@@ -20,8 +20,8 @@ function initialise(){
     canvasArea.addEventListener('mousemove', function(e) {
         if (mousePressed) {
             let offset = canvasArea.getBoundingClientRect();
-            let x = e.pageX - offset.left;
-            let y = e.pageY - offset.top;
+            let x = e.pageX - offset.left - 10;
+            let y = e.pageY - offset.top - 10;
             draw(x, y, true); // Draw line
         }
     });

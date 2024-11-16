@@ -68,14 +68,14 @@ function drawLineOfStave(x1, y1, x2, y2) {
 
 function drawTrebleClef() {
     context.font = '150px Verdana';
-    context.fillText("𝄞", 80, 130, 80);
+    context.fillText("𝄞", 75, 130, 80);
 }
 
 
 function drawTimeSignature(top, bottom) {
     context.font = '65px Allegretto';
-    context.fillText(top, 155, 90, 100);
-    context.fillText(bottom, 155, 135, 100);
+    context.fillText(top, 130, 90, 100);
+    context.fillText(bottom, 130, 135, 100);
 }
 
 function drawMeasureLines() {

@@ -17,9 +17,18 @@ body {
     border-radius: 10px;
 }
 
+#canvas_div{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 canvas{
     border-radius: 25px;
     border: 10px solid #BE35AC;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
 }
 
 .container-fluid {

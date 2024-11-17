@@ -159,6 +159,13 @@ function cPush(){
 }
 
 function submit(){ 
+
+    showAudio();
+}
+
+function showAudio(){
+
+    audio.style.display = "flex";
 }
 
 //main program body
@@ -179,5 +186,7 @@ undoButton.addEventListener('click', function() {undo()});
 let submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', function(e){submit()})
 
+let audio = document.getElementById('audio');
+audio.style.display = "none";
 
 

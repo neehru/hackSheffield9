@@ -64,6 +64,7 @@ function drawStave() {
 }
 
 function drawLineOfStave(x1, y1, x2, y2) {
+    context.lineWidth = 0.5;
     context.beginPath();
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
@@ -110,8 +111,8 @@ function clearCanvas(){
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     drawStave();
     drawTrebleClef();
-    // drawTimeSignature();
-    // drawMeasureLines();
+    drawTimeSignature();
+    drawMeasureLines();
     // drawIntermediateLines();
 }
 

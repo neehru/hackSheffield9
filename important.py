@@ -46,7 +46,7 @@ with open("uploaded_image.ly", "w") as f:
     f.write("\score { \midi{} \layout{} {" + caption + "}}")
 
 
-subprocess.run([lilypond.executable(), "test7.ly"])
+subprocess.run([lilypond.executable(), "uploaded_image.ly"])
 
 command = [
     "fluidsynth",

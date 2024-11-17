@@ -19,7 +19,7 @@ To install the required dependencies:
 * 'sudo apt install -y fluidsynth' or go to [FluidSynth's website](https://www.fluidsynth.org/download/) and download and install FluidSynth from there
 
 ## Running
-To run the site, run the server.py file (python server.py), and open the sound-palette.html file
+To run the site, run the server.py file (python ./server/server.py), and open the sound-palette.html file
 
 ## Known Issues
 

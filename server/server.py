@@ -28,12 +28,16 @@ def run_script():
       if os.path.getsize(image_filename) == 0:
          return jsonify({"error": "Failed to save image file. The file may be empty."}), 500
       # Run the second Python script
-      second_script = 'second_script.py'  # Replace with your script name
+      second_script = 'second_script.py'
       try:
          result = subprocess.run(
             ['python', second_script, image_filename],  # Pass image filename as argument
             text=True, capture_output=True, check=True
          )
+         # result2 = subprocess.run(
+         #    ['python', 'important.py', image_filename],
+         #    text=True, capture_output=True, check=True
+         # )
          output = result.stdout.strip()  # Capture script output
       except subprocess.CalledProcessError as e:
          return jsonify({"error": "Failed to execute script", "details": e.stderr.strip()}), 500
@@ -42,18 +46,6 @@ def run_script():
       return jsonify({"message": "Image processed successfully", "script_output": output})
    except Exception as e:
       return jsonify({"error": "Failed to process image", "details": str(e)}), 500
-   
-   # Run a second Python script using subprocess
-   # try:
-   #    result = subprocess.run(
-   #       ['python', 'second_script.py', input_value],  # Pass input_value as an argument
-   #       text=True, capture_output=True, check=True
-   #    )
-   #    output = result.stdout.strip()  # Capture the output of the second script
-   # except subprocess.CalledProcessError as e:
-   #    return jsonify({"error": "Error running second script", "details": str(e)}), 500
-   # # Return the result to the frontend
-   # return jsonify({"result": output+result})
 
 if __name__ == '__main__':
     app.run(debug=True)

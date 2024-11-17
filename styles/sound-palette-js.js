@@ -110,6 +110,9 @@ function drawIntermediateLines() {
 function clearCanvas(){
     context.setTransform(1, 0, 0, 1, 0, 0)
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    context.fillStyle = "white"; // Set the fill color to white
+    context.fillRect(0, 0, canvasArea.width, canvasArea.height);
+    context.fillStyle = "black";
     drawStave();
     drawTrebleClef();
     drawTimeSignature();

@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/run', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def run_script():
    data = request.json  # Get JSON data from the request
    if not data:

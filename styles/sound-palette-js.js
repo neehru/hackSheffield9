@@ -119,13 +119,13 @@ function clearCanvas(){
 }
 
 async function saveCanvasImage() {
-    const imageData = canvas.toDataURL("image/png"); // Convert to Base64 PNG
+    const imageData = canvasArea.toDataURL("image/png"); // Convert to Base64 PNG
     const blob = await fetch(imageData).then(res => res.blob()); // Convert to Blob
 
     const formData = new FormData();
     formData.append("image", blob, "drawing.png");
 
-    const response = await fetch("/upload", {
+    const response = await fetch("/http://127.0.0.1:5000/upload", {
         method: "POST",
         body: formData,
     });

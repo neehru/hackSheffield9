@@ -30,7 +30,7 @@ tokenizer = AutoTokenizer.from_pretrained("Flova/omr_transformer")
 processor = AutoProcessor.from_pretrained("Flova/omr_transformer")
 model = AutoModelForImageTextToText.from_pretrained("Flova/omr_transformer")
 
-image_path = "test7.png"
+image_path = "uploaded_image.png"
 image = Image.open(image_path)
 image = image.convert("RGB")
 inputs = processor(images=image, return_tensors="pt")
@@ -42,7 +42,7 @@ caption = processor.decode(outputs[0], skip_special_tokens=True)
 
 #print(f"Generated Caption: {caption}")
 
-with open("test7.ly", "w") as f:
+with open("uploaded_image.ly", "w") as f:
     f.write("\score { \midi{} \layout{} {" + caption + "}}")
 
 
@@ -52,7 +52,7 @@ command = [
     "fluidsynth",
     "-ni",
     "sound.sf2",
-    "test7.midi",
+    "uploaded_image.midi",
     "-F", "ouptut.wav",
     "-r", "48000"
 ]

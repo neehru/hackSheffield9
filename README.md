@@ -17,6 +17,7 @@ To test the system on your device, clone this repository using 'git clone https:
 To install the required dependencies:
 * 'pip install -r requirements.txt'
 * 'sudo apt install -y fluidsynth' or go to [FluidSynth's website](https://www.fluidsynth.org/download/) and download and install FluidSynth from there
+* you also need to have a .sf2 (sound font) file in your directory in order to convert to audio
 
 ## Running
 To run the site, run the server.py file (python ./server/server.py), and open the sound-palette.html file

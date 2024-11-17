@@ -116,10 +116,20 @@ function clearCanvas(){
     // drawIntermediateLines();
 }
 
-function playNote(note) {
-    e.preventDefault();
-    audio.src = "";
-    audio.play;
+async function saveCanvasImage() {
+    const imageData = canvas.toDataURL("image/png"); // Convert to Base64 PNG
+    const blob = await fetch(imageData).then(res => res.blob()); // Convert to Blob
+
+    const formData = new FormData();
+    formData.append("image", blob, "drawing.png");
+
+    const response = await fetch("/upload", {
+        method: "POST",
+        body: formData,
+    });
+
+    const result = await response.json();
+    console.log(result); // Handle the backend response
 }
 
 //main program body

@@ -11,8 +11,22 @@
         <!-- Bootstrap JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/7118fd66c6.js" crossorigin="anonymous"></script>
+        <script>
+            async function callPython() {
+                const response = await fetch('http://127.0.0.1:5000/run', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ input: 'Hello from JavaScript!' })
+                });
+    
+                const data = await response.json();
+                console.log('Response from Python:', data.result);
+                document.getElementById('output').textContent = data.result;
+            }
+        </script>
     </head>
     <body onload="initialise();">
+        <p id="output"></p>
         <nav class="navbar-brand navbar-light bg-light">
             <div>
                 <h1 class="purple">Sound Palette <i class="fa-solid fa-music purple"></i></h1>
@@ -26,7 +40,7 @@
                 <button id="clearCanvas">Clear All</button>
                 <button id="undoButton">Undo</button>
                 <button id="redoButton">Redo</button>
-                <button id="submit">Submit</button>
+                <button id="submit" onclick="callPython()">Submit</button>
             </div>
     </body>
     <script src="../styles/sound-palette-js.js"></script>

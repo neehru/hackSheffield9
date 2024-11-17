@@ -1,29 +1,13 @@
-<<<<<<< HEAD
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-=======
+
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import subprocess
 import base64
 import os
->>>>>>> 3dc06ed060a861b84bb39a2fc8439d560af063dc
 
 app = Flask(__name__)
 CORS(app)
 
-<<<<<<< HEAD
-@app.route('/run', methods=['POST'])
-def run_script():
-    # Example of executing Python logic
-    data = request.json
-    if not data:
-         return jsonify({"error": "No JSON data found"}), 400
-    input_value = data.get('input', '')
-    result = f"Received: {input_value}"
-    print(result)
-    return jsonify({"result": result})
-=======
 @app.route('/upload', methods=['POST'])
 def run_script():
    data = request.json  # Get JSON data from the request
@@ -70,7 +54,6 @@ def run_script():
    #    return jsonify({"error": "Error running second script", "details": str(e)}), 500
    # # Return the result to the frontend
    # return jsonify({"result": output+result})
->>>>>>> 3dc06ed060a861b84bb39a2fc8439d560af063dc
 
 if __name__ == '__main__':
     app.run(debug=True)

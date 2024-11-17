@@ -28,6 +28,7 @@ footer {
 canvas{
     border-radius: 25px;
     border: 10px solid #BE35AC;
+    background-color: white;
 }
 
 .container-fluid {
@@ -81,3 +82,4 @@ canvas{
     /* width: 100%; Optional: Adjust width as needed */
     text-align: center; /* Center content inside */
 }
+

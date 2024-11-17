@@ -176,7 +176,7 @@ function submit(){
 
 function showAudio(){
 
-    audioSource.src="audio.wav";
+    audioSource.src="output.wav";
     audio.load();
     audio.play();
     audio.style.display = "flex";

@@ -133,7 +133,7 @@ function undo(){
         canvasPic.onload = function() {
             clearCanvas()
             context.drawImage(canvasPic, 0, 0)
-            console.log("undo: draw index " + cStep+1);
+            // console.log("undo: draw index " + cStep+1);
         // cStep--;
         }
     }
@@ -145,7 +145,10 @@ function cPush(){
         if(cStep < cPushArray.length)
             cPushArray.length = cStep
         cPushArray[cStep] = (document.getElementById('canvas_area').toDataURL());
-        console.log("cPush: added drawing to index " + cStep);
+        // console.log("cPush: added drawing to index " + cStep);
+}
+
+function submit(){ 
 }
 
 //main program body
@@ -162,6 +165,9 @@ clearButton.addEventListener('click', function() {clearCanvas()});
 
 let undoButton = document.getElementById('undoButton');
 undoButton.addEventListener('click', function() {undo()});
+
+let submitButton = document.getElementById('submit');
+submitButton.addEventListener('click', function(e){submit()})
 
 
 

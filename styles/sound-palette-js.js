@@ -107,6 +107,12 @@ function clearCanvas(){
     drawTrebleClef();
 }
 
+function playNote(note) {
+    e.preventDefault();
+    audio.src = "";
+    audio.play;
+}
+
 //main program body
 let canvasArea = document.getElementById('canvas_area');
 let context;

@@ -3,9 +3,12 @@
     padding: 0;
 }
 
-body {
-    margin: 10px;
-    padding: 10px;
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .purple {
@@ -18,9 +21,8 @@ body {
 }
 
 #canvas_div{
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
+    margin: 40px auto;
 }
 
 canvas{
@@ -42,4 +44,22 @@ canvas{
     text-decoration: underline;
     letter-spacing: 1px;
     font-size: 20px;
+}
+
+.centered {
+    max-width: fit-content;
+    margin: 100px auto auto auto;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px grey;
+}
+
+.main-container {
+    margin: 10px;
+    padding: 10px;
 }

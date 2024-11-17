@@ -29,26 +29,27 @@
     </head>
     <body onload="initialise();">
         <p id="output"></p>
-        <nav class="navbar-brand navbar-light bg-light">
+        <nav class="navbar-brand navbar-light bg-light text-center">
             <div>
                 <h1 class="purple">Sound Palette <i class="fa-solid fa-music purple"></i></h1>
             </div>
         </nav>
+        <div class="main-container">
             <div id="canvas_div">
                 <canvas id="canvas_area" width="1200" height="200"></canvas>
                 <p>Draw 4 crotches (quarter notes) per measure</p>
             </div>
-            <div class="stave">
-                <button id="clearCanvas">Clear All</button>
-                <button id="undoButton">Undo</button>
-                <button id="redoButton">Redo</button>
-                <button id="submit" onclick="callPython()">Submit</button>
+            <div class="container centered">
+                <button class="btn btn-outline-danger" id="clearCanvas">Clear All</button>
+                <button class="btn btn-outline-primary" id="undoButton">Undo</button>
+                <button id="submit" class="btn btn-success" onclick="saveCanvasImage()">Submit</button>
             </div>
+        </div>
     </body>
     <script src="../styles/sound-palette-js.js"></script>
     <footer class="mt-auto bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-3 bg-dark">
-            <p class="text-white">she sound on my palette till I club</p>
+            <p class="text-white">Sound Palette</p>
             <p class="text-white">Copyright © 2024</p>
         </div>
     </footer>

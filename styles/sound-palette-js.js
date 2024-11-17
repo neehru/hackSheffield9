@@ -118,10 +118,20 @@ function clearCanvas(){
     cPush();
 }
 
-function playNote(note) {
-    e.preventDefault();
-    audio.src = "";
-    audio.play;
+async function saveCanvasImage() {
+    const imageData = canvas.toDataURL("image/png"); // Convert to Base64 PNG
+    const blob = await fetch(imageData).then(res => res.blob()); // Convert to Blob
+
+    const formData = new FormData();
+    formData.append("image", blob, "drawing.png");
+
+    const response = await fetch("/upload", {
+        method: "POST",
+        body: formData,
+    });
+
+    const result = await response.json();
+    console.log(result); // Handle the backend response
 }
 
 function undo(){
@@ -133,7 +143,7 @@ function undo(){
         canvasPic.onload = function() {
             clearCanvas()
             context.drawImage(canvasPic, 0, 0)
-            console.log("undo: draw index " + cStep+1);
+            // console.log("undo: draw index " + cStep+1);
         // cStep--;
         }
     }
@@ -145,7 +155,10 @@ function cPush(){
         if(cStep < cPushArray.length)
             cPushArray.length = cStep
         cPushArray[cStep] = (document.getElementById('canvas_area').toDataURL());
-        console.log("cPush: added drawing to index " + cStep);
+        // console.log("cPush: added drawing to index " + cStep);
+}
+
+function submit(){ 
 }
 
 //main program body
@@ -162,6 +175,9 @@ clearButton.addEventListener('click', function() {clearCanvas()});
 
 let undoButton = document.getElementById('undoButton');
 undoButton.addEventListener('click', function() {undo()});
+
+let submitButton = document.getElementById('submit');
+submitButton.addEventListener('click', function(e){submit()})
 
 
 

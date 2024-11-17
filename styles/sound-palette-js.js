@@ -2,11 +2,7 @@
 
 function initialise(){
     context = document.getElementById('canvas_area').getContext('2d');
-    drawStave();
-    drawTrebleClef();
-    drawTimeSignature();
-    drawMeasureLines();
-    // drawIntermediateLines()
+    clearCanvas();
 
     canvasArea.addEventListener('mousedown', function(e) {
         mousePressed = true;
@@ -63,6 +59,7 @@ function drawStave() {
 
     for (let i = 1; i <= 5; i++) {
         drawLineOfStave(margin, 30 + i * yDist,canvasWidth - margin, 30 + i * yDist);
+        console.log("line " + i + " drawn");
     }
 }
 
@@ -109,12 +106,12 @@ function drawIntermediateLines() {
 }
 
 function clearCanvas(){
-    context.setTransform(1, 0, 0, 1, 0, 0)
+    // context.setTransform(1, 0, 0, 1, 0, 0)
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     drawStave();
     drawTrebleClef();
-    drawTimeSignature();
-    drawMeasureLines();
+    // drawTimeSignature();
+    // drawMeasureLines();
     // drawIntermediateLines();
 }
 
@@ -133,3 +130,6 @@ let mousePressed = false;
 
 let clearButton = document.getElementById('clearCanvas');
 clearButton.addEventListener('click', function() {clearCanvas()});
+
+// let undoButton = document.getElementById('undoButton');
+// undoButton.addEventListener()

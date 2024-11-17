@@ -27,6 +27,8 @@ function initialise(){
         mousePressed = false;
         lastX = null; // Reset lastX
         lastY = null; // Reset lastY
+
+        cPush();
     });
 
     // Mouse leave: Stop drawing
@@ -50,6 +52,7 @@ function draw(x, y, down){
     }
     lastX = x; // Update lastX
     lastY = y; // Update lastY
+
 }
 
 function drawStave() {
@@ -59,7 +62,6 @@ function drawStave() {
 
     for (let i = 1; i <= 5; i++) {
         drawLineOfStave(margin, 30 + i * yDist,canvasWidth - margin, 30 + i * yDist);
-        console.log("line " + i + " drawn");
     }
 }
 
@@ -89,7 +91,6 @@ function drawMeasureLines() {
         context.lineWidth = 4;
         context.beginPath();
         context.moveTo(160 + (i-1) * (canvasWidth / 5), 131);
-        console.log(i + " " + (160 + i * (canvasWidth / 5)))
         context.lineTo(160 + (i-1) * (canvasWidth / 5), 49);
         context.stroke();
     }
@@ -114,6 +115,7 @@ function clearCanvas(){
     drawTimeSignature();
     drawMeasureLines();
     // drawIntermediateLines();
+    cPush();
 }
 
 function playNote(note) {
@@ -122,15 +124,44 @@ function playNote(note) {
     audio.play;
 }
 
+function undo(){
+    if (cStep > 0){
+        cStep = cStep-2;
+        // console.log("undo button pressed, cStep: " + cStep);
+        let canvasPic = new Image();
+        canvasPic.src = cPushArray[cStep+1];
+        canvasPic.onload = function() {
+            clearCanvas()
+            context.drawImage(canvasPic, 0, 0)
+            console.log("undo: draw index " + cStep+1);
+        // cStep--;
+        }
+    }
+}
+
+function cPush(){
+    cStep++;
+    if (cStep >= 0)
+        if(cStep < cPushArray.length)
+            cPushArray.length = cStep
+        cPushArray[cStep] = (document.getElementById('canvas_area').toDataURL());
+        console.log("cPush: added drawing to index " + cStep);
+}
+
 //main program body
 let canvasArea = document.getElementById('canvas_area');
 let context;
 let lastX = null;
 let lastY = null;
 let mousePressed = false;
+let cPushArray = new Array();
+let cStep = -1;
 
 let clearButton = document.getElementById('clearCanvas');
 clearButton.addEventListener('click', function() {clearCanvas()});
 
-// let undoButton = document.getElementById('undoButton');
-// undoButton.addEventListener()
+let undoButton = document.getElementById('undoButton');
+undoButton.addEventListener('click', function() {undo()});
+
+
+

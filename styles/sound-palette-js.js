@@ -176,6 +176,9 @@ function submit(){
 
 function showAudio(){
 
+    audioSource.src="audio.wav";
+    audio.load();
+    audio.play();
     audio.style.display = "flex";
 }
 
@@ -199,5 +202,7 @@ submitButton.addEventListener('click', function(e){submit()})
 
 let audio = document.getElementById('audio');
 audio.style.display = "none";
+
+let audioSource = document.getElementById('audio_src');
 
 

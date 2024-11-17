@@ -119,24 +119,31 @@ function clearCanvas(){
 }
 
 async function saveCanvasImage() {
-
-    const imageData = canvasArea.toDataURL("image/png"); // Convert to Base64 PNG
-
-    const blob = await fetch(imageData).then(res => res.blob()); // Convert to Blob
-
-    const formData = new FormData();
-    formData.append("image", blob, "drawing.png");
-
-
-    const response = await fetch("/http://127.0.0.1:5000/upload", {
-
-        method: "POST",
-        body: formData,
-    });
-
-    const result = await response.json();
-    console.log(result); // Handle the backend response
-}
+    const imageData = canvasArea.toDataURL("image/png"); // Convert canvas to Base64 PNG
+    const payload = JSON.stringify({ image: imageData }); // Prepare JSON payload
+ 
+ 
+    try {
+        const response = await fetch("http://127.0.0.1:5000/upload", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json", // Ensure JSON payload
+            },
+            body: payload,
+        });
+ 
+ 
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+ 
+ 
+        const result = await response.json();
+        console.log(result); // Log the backend response
+    } catch (error) {
+        console.error("Error uploading image:", error);
+    }
+ }
 
 function undo(){
     if (cStep > 0){
@@ -163,6 +170,13 @@ function cPush(){
 }
 
 function submit(){ 
+
+    showAudio();
+}
+
+function showAudio(){
+
+    audio.style.display = "flex";
 }
 
 //main program body
@@ -183,5 +197,7 @@ undoButton.addEventListener('click', function() {undo()});
 let submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', function(e){submit()})
 
+let audio = document.getElementById('audio');
+audio.style.display = "none";
 
 

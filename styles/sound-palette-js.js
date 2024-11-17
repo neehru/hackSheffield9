@@ -108,7 +108,7 @@ function drawIntermediateLines() {
 }
 
 function clearCanvas(){
-    // context.setTransform(1, 0, 0, 1, 0, 0)
+    context.setTransform(1, 0, 0, 1, 0, 0)
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     drawStave();
     drawTrebleClef();
@@ -154,7 +154,7 @@ function undo(){
         canvasPic.onload = function() {
             clearCanvas()
             context.drawImage(canvasPic, 0, 0)
-            // console.log("undo: draw index " + cStep+1);
+            console.log("undo: draw index " + cStep+1);
         // cStep--;
         }
     }
@@ -166,7 +166,7 @@ function cPush(){
         if(cStep < cPushArray.length)
             cPushArray.length = cStep
         cPushArray[cStep] = (document.getElementById('canvas_area').toDataURL());
-        // console.log("cPush: added drawing to index " + cStep);
+        console.log("cPush: added drawing to index " + cStep);
 }
 
 function submit(){ 

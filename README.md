@@ -13,7 +13,7 @@ We made this using HTML, CSS, and JavaScript for the webpage and Python scripts 
 We then worked on fixing the file merge errors later, after having the project judged by CompSoc's committee members.
 
 ## Requirements
-To test the system on your device, clone this repository using 'git clone https://github.com/neehru/she-HACK-on-my-A-till-i-THON.git' in command line.
+To test the system on your device, clone this repository using 'git clone https://github.com/neehru/hackSheffield9' in command line.
 To install the required dependencies:
 * 'pip install -r requirements.txt'
 * 'sudo apt install -y fluidsynth' or go to [FluidSynth's website](https://www.fluidsynth.org/download/) and download and install FluidSynth from there
